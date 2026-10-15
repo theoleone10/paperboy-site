@@ -1,0 +1,182 @@
+:root {
+  --accent: #5b58bd;
+  --accent-soft: #ecebfa;
+  --text: #1c1b29;
+  --secondary: #5d5c6e;
+  --background: #fbfaf7;
+  --card: #ffffff;
+  --separator: #e6e4ee;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #9c99f0;
+    --accent-soft: #26254a;
+    --text: #f2f1f7;
+    --secondary: #aeadc0;
+    --background: #121218;
+    --card: #1c1c25;
+    --separator: #2c2b38;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand span {
+  color: var(--accent);
+}
+
+nav a {
+  color: var(--secondary);
+  text-decoration: none;
+  margin-left: 16px;
+  font-size: 15px;
+}
+
+nav a:hover,
+a {
+  color: var(--accent);
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 22px;
+  margin: 40px 0 8px;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 24px 0 4px;
+}
+
+p,
+li {
+  color: var(--secondary);
+}
+
+strong {
+  color: var(--text);
+}
+
+.lede {
+  font-size: 20px;
+}
+
+.updated {
+  font-size: 15px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--separator);
+  border-radius: 20px;
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.callout {
+  background: var(--accent-soft);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin: 24px 0;
+}
+
+.callout p {
+  margin: 0;
+  color: var(--text);
+}
+
+.steps {
+  display: grid;
+  gap: 16px;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps li {
+  counter-increment: step;
+  background: var(--card);
+  border: 1px solid var(--separator);
+  border-radius: 16px;
+  padding: 16px 20px 16px 64px;
+  position: relative;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 20px;
+  top: 16px;
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--separator);
+  font-size: 15px;
+  color: var(--secondary);
+}
+
+footer a {
+  margin-right: 16px;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 32px;
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav a {
+    margin: 0 16px 0 0;
+  }
+}
